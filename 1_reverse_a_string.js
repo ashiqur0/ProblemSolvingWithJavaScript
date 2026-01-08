@@ -1,4 +1,9 @@
 /**
+ * 🔥 Interview Tip (Important)
+ * If asked, Reverse a string without using built-in methods: 👉 Use for loop or two-pointer approach
+ */
+
+/**
  * 1️⃣ Using Built-in Methods (split, reverse, join)
  * ✔ Most common & concise
  * Approach: Convert string to array, Reverse array, Join back to string
@@ -37,13 +42,59 @@
  * Approach: Loop through characters, Add each character at the beginning
  * Pros: Very readable, Works with Unicode characters
  */
+// const reverseString = str => {
+//     let reversedStr = '';
+//     for (const char of str) {
+//         reversedStr = char + reversedStr;
+//     }
+
+//     return reversedStr;
+// }
+
+// console.log(reverseString('hello'));
+
+/**
+ * 4️⃣ Using reduce()
+ * ✔ Functional programming style
+ * Pros: Elegant, Shows functional knowledge
+ * Cons: Less readable for beginners
+ */
+
+// const reverseString = str => {
+//     return str.split('').reduce((rev, char) => char + rev, '');
+// }
+
+// console.log(reverseString('hello'));
+
+/**
+ * 5️⃣ Using Recursion
+ * ✔ Tests recursion understanding
+ * Approach: Reverse substring recursively
+ * Pros: Demonstrates recursion, Conceptually elegant
+ * Cons: Risk of stack overflow for large strings
+ */
+// const reverseString = str => {
+//     if (str === '') return '';
+//     return reverseString(str.slice(1) + str[0]);
+// }
+// console.log(reverseString('hello'));
+
+/**
+ * 5️⃣ Using Array Swapping (Two-Pointer Technique)
+ * ✔ Best for algorithm interviews
+ * Pros: Efficient
+ * Cons: Demonstrates algorithmic thinking
+ */
 const reverseString = str => {
-    let reversedStr = '';
-    for (const char of str) {
-        reversedStr = char + reversedStr;
+    let arr = str.split('');
+    let left = 0;
+    let right = str.length - 1;
+    while (left < right) {
+        [arr[left], arr[right]] = [arr[right], arr[left]];
+        left++;
+        right--;
     }
 
-    return reversedStr;
+    return arr.join('');
 }
-
 console.log(reverseString('hello'));
