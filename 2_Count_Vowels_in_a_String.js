@@ -12,17 +12,36 @@
  * 1️⃣ Using for Loop (Most Interview-Friendly)
  * ✅ Best choice when interviewer says: “no fancy methods”
  */
+// const countVowels = str => {
+//     let count = 0;
+//     const vowels = 'aeiouAEIOU';
 
+//     for (let i = 0; i < str.length; i++) {
+//         if (vowels.includes(str[i])) {
+//             count++;
+//         }
+//     }
+
+//     return count;
+// }
+// console.log(countVowels('programming'));
+
+/**
+ * 2️⃣ Using for...of Loop (Clean & Modern)
+ * ✅ Very readable
+ * ✅ Works well with Unicode characters
+ */
 const countVowels = str => {
     let count = 0;
     const vowels = 'aeiouAEIOU';
-    
-    for (let i = 0; i < str.length; i++) {
-        if (vowels.includes(str[i])) {
+
+    for (const char of str) {
+        if (vowels.includes(char)) {
             count++;
         }
     }
 
     return count;
 }
+
 console.log(countVowels('programming'));
