@@ -37,13 +37,26 @@
  * Approach: Loop through characters, Add each character at the beginning
  * Pros: Very readable, Works with Unicode characters
  */
-const reverseString = str => {
-    let reversedStr = '';
-    for (const char of str) {
-        reversedStr = char + reversedStr;
-    }
+// const reverseString = str => {
+//     let reversedStr = '';
+//     for (const char of str) {
+//         reversedStr = char + reversedStr;
+//     }
 
-    return reversedStr;
+//     return reversedStr;
+// }
+
+// console.log(reverseString('hello'));
+
+/**
+ * 4️⃣ Using reduce()
+ * ✔ Functional programming style
+ * Pros: Elegant, Shows functional knowledge
+ * Cons: Less readable for beginners
+ */
+
+const reverseString = str => {
+    return str.split('').reduce((rev, char) => char + rev, '');
 }
 
 console.log(reverseString('hello'));
