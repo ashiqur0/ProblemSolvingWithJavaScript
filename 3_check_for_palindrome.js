@@ -10,6 +10,9 @@
  */
 
 /**
+ * 2️⃣ Using for Loop (Two-Pointer Technique)
+ * ✔ Best for interviews (no fancy methods)
+ * 
  * Why interviewers love this
  * ✅ Efficient
  * ✅ Shows algorithmic thinking
