@@ -1,4 +1,9 @@
 /**
+ * 🔥 Interview Tip (Important)
+ * If asked, Reverse a string without using built-in methods: 👉 Use for loop or two-pointer approach
+ */
+
+/**
  * 1️⃣ Using Built-in Methods (split, reverse, join)
  * ✔ Most common & concise
  * Approach: Convert string to array, Reverse array, Join back to string
