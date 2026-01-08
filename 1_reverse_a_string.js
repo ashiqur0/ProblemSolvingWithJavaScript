@@ -20,11 +20,27 @@
  * Cons: String concatenation can be slower for large strings
  */
 
+// const reverseString = str => {
+//     let reversedStr = '';
+//     for (let i = str.length - 1; i >= 0; i--) {
+//         reversedStr += str[i];
+//     }
+
+//     return reversedStr;
+// }
+
+// console.log(reverseString('hello'));
+
+/**
+ * 3️⃣ Using for...of Loop
+ * ✔ Clean & modern JavaScript
+ * Approach: Loop through characters, Add each character at the beginning
+ * Pros: Very readable, Works with Unicode characters
+ */
 const reverseString = str => {
     let reversedStr = '';
-
-    for (let i = str.length - 1; i >= 0; i--) {
-        reversedStr += str[i];
+    for (const char of str) {
+        reversedStr = char + reversedStr;
     }
 
     return reversedStr;
