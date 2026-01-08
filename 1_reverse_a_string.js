@@ -68,9 +68,28 @@
  * Pros: Demonstrates recursion, Conceptually elegant
  * Cons: Risk of stack overflow for large strings
  */
-const reverseString = str => {
-    if (str === '') return '';
-    return reverseString(str.slice(1) + str[0]);
-}
+// const reverseString = str => {
+//     if (str === '') return '';
+//     return reverseString(str.slice(1) + str[0]);
+// }
+// console.log(reverseString('hello'));
 
+/**
+ * 5️⃣ Using Array Swapping (Two-Pointer Technique)
+ * ✔ Best for algorithm interviews
+ * Pros: Efficient
+ * Cons: Demonstrates algorithmic thinking
+ */
+const reverseString = str => {
+    let arr = str.split('');
+    let left = 0;
+    let right = str.length - 1;
+    while (left < right) {
+        [arr[left], arr[right]] = [arr[right], arr[left]];
+        left++;
+        right--;
+    }
+
+    return arr.join('');
+}
 console.log(reverseString('hello'));
