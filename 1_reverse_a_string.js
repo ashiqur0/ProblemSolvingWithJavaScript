@@ -55,8 +55,22 @@
  * Cons: Less readable for beginners
  */
 
+// const reverseString = str => {
+//     return str.split('').reduce((rev, char) => char + rev, '');
+// }
+
+// console.log(reverseString('hello'));
+
+/**
+ * 5️⃣ Using Recursion
+ * ✔ Tests recursion understanding
+ * Approach: Reverse substring recursively
+ * Pros: Demonstrates recursion, Conceptually elegant
+ * Cons: Risk of stack overflow for large strings
+ */
 const reverseString = str => {
-    return str.split('').reduce((rev, char) => char + rev, '');
+    if (str === '') return '';
+    return reverseString(str.slice(1) + str[0]);
 }
 
 console.log(reverseString('hello'));
