@@ -54,7 +54,20 @@
  * Pros: Short and clean
  * Cons: Can fail for very large arrays (stack limit)
  */
+// const findMax = arr => {
+//     return Math.max(...arr);
+// }
+// console.log(findMax([5, 1, 9, 3]));
+
+/**
+ * 4️⃣ Using reduce() (Functional Style)
+ * 
+ * Pros: Shows functional programming
+ * Cons: Slightly harder to explain
+ */
 const findMax = arr => {
-    return Math.max(...arr);
+    return arr.reduce((max, cur) => {
+        return cur > max? cur: max;
+    }, -Infinity)
 }
 console.log(findMax([5, 1, 9, 3]));
