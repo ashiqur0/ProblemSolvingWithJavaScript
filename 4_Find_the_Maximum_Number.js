@@ -78,8 +78,20 @@
  * Pros: Modifies original array
  * Cons: Slower (O(n log n))
  */
-const findMax = arr => {
-    arr.sort((a, b) => b - a);
-    return arr[0];
+// const findMax = arr => {
+//     arr.sort((a, b) => b - a);
+//     return arr[0];
+// }
+// console.log(findMax([5, 1, 9, 3]));
+
+/**
+ * 6️⃣ Using Recursion
+ * 
+ * Pros: Demonstrates recursion
+ * Cons: Not practical for large arrays
+ */
+const findMax = (arr, index = 0, max = -Infinity) => {
+    if (index === arr.length) return max;
+    return findMax(arr, index + 1, arr[index] > max? arr[index]: max);
 }
 console.log(findMax([5, 1, 9, 3]));
