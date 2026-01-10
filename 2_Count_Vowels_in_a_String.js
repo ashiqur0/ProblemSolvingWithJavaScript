@@ -78,8 +78,24 @@
  * Pros: Easy to understand
  * Cons: Creates intermediate array
  */
+// const countVowels = str => {
+//     const vowels = 'aeiouAEIOU';
+//     return str.split('').filter(char => vowels.includes(char)).length;
+// }
+// console.log(countVowels('programming'));
+
+/**
+ * 6️⃣ Using Set (Optimized Lookups)
+ * Pros: O(1) lookup, Good for large datasets
+ */
 const countVowels = str => {
-    const vowels = 'aeiouAEIOU';
-    return str.split('').filter(char => vowels.includes(char)).length;
+    const vowels = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
+    let count = 0;
+    for (const char of str) {
+        if (vowels.has(char)) {
+            count++;
+        }
+    }
+    return count;
 }
 console.log(countVowels('programming'));
