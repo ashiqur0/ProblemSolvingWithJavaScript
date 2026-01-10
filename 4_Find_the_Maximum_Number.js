@@ -36,14 +36,25 @@
  * ✅ Handles negative numbers safely
  * ✅ Very readable
  */
-const findMax = arr => {
-    let max = -Infinity;
+// const findMax = arr => {
+//     let max = -Infinity;
 
-    for (const num of arr) {
-        if(num > max) {
-            max = num;
-        }
-    }
-    return max;
+//     for (const num of arr) {
+//         if(num > max) {
+//             max = num;
+//         }
+//     }
+//     return max;
+// }
+// console.log(findMax([5, 1, 9, 3]));
+
+/**
+ * 3️⃣ Using Math.max() with Spread Operator
+ * 
+ * Pros: Short and clean
+ * Cons: Can fail for very large arrays (stack limit)
+ */
+const findMax = arr => {
+    return Math.max(...arr);
 }
 console.log(findMax([5, 1, 9, 3]));
