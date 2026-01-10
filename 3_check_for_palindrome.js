@@ -16,12 +16,12 @@
  * Pros: Very readable, Easy to explain
  * Cons: Uses extra space, Sometimes disallowed
  */
-const isPalindrome = str => {
-    const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, "");
-    return cleanStr === str.split('').reverse().join('');
-}
-console.log(isPalindrome('madam'));
-console.log(isPalindrome('hello'));
+// const isPalindrome = str => {
+//     const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+//     return cleanStr === str.split('').reverse().join('');
+// }
+// console.log(isPalindrome('madam'));
+// console.log(isPalindrome('hello'));
 
 /**
  * 2️⃣ Using for Loop (Two-Pointer Technique)
@@ -49,3 +49,19 @@ console.log(isPalindrome('hello'));
 
 // console.log(isPalindrome("madam"));
 // console.log(isPalindrome("hello"));
+
+/**
+ * 3️⃣ Using for Loop (Half Comparison)
+ * Pros: Avoids reversing entire string, Simple logic
+ */
+const isPalindrome = str => {
+    const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    for (let i = 0; i < cleanStr.length / 2; i++) {
+        if (cleanStr[i] !== cleanStr[cleanStr.length - 1 - i]) {
+            return false;
+        }
+    }
+    return true;
+}
+console.log(isPalindrome('madam'));
+console.log(isPalindrome('hello'));
