@@ -54,14 +54,27 @@
  * 3️⃣ Using for Loop (Half Comparison)
  * Pros: Avoids reversing entire string, Simple logic
  */
+// const isPalindrome = str => {
+//     const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+//     for (let i = 0; i < cleanStr.length / 2; i++) {
+//         if (cleanStr[i] !== cleanStr[cleanStr.length - 1 - i]) {
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+// console.log(isPalindrome('madam'));
+// console.log(isPalindrome('hello'));
+
+/**
+ * 4️⃣ Using reduce() (Functional Style)
+ * Pros: Shows functional programming knowledge
+ * Cons: Less readable
+ */
 const isPalindrome = str => {
-    const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
-    for (let i = 0; i < cleanStr.length / 2; i++) {
-        if (cleanStr[i] !== cleanStr[cleanStr.length - 1 - i]) {
-            return false;
-        }
-    }
-    return true;
+    const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const reverse = str.split('').reduce((rev, char) => char + rev, '');
+    return cleanStr === reverse;
 }
 console.log(isPalindrome('madam'));
 console.log(isPalindrome('hello'));
