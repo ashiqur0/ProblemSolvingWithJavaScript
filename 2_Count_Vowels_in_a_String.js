@@ -67,8 +67,19 @@
  * Pros: Very short
  * Cons: Regex knowledge required
  */
+// const countVowels = str => {
+//     const matches = str.match(/[aeiou]/gi);
+//     return matches? matches.length : 0;
+// }
+// console.log(countVowels('programming'));
+
+/**
+ * 5️⃣ Using filter() Method
+ * Pros: Easy to understand
+ * Cons: Creates intermediate array
+ */
 const countVowels = str => {
-    const matches = str.match(/[aeiou]/gi);
-    return matches? matches.length : 0;
+    const vowels = 'aeiouAEIOU';
+    return str.split('').filter(char => vowels.includes(char)).length;
 }
 console.log(countVowels('programming'));
