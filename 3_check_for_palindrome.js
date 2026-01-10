@@ -71,10 +71,29 @@
  * Pros: Shows functional programming knowledge
  * Cons: Less readable
  */
+// const isPalindrome = str => {
+//     const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+//     const reverse = str.split('').reduce((rev, char) => char + rev, '');
+//     return cleanStr === reverse;
+// }
+// console.log(isPalindrome('madam'));
+// console.log(isPalindrome('hello'));
+
+/**
+ * 5️⃣ Using Recursion
+ * Pros: Tests recursion understanding, Conceptually elegant
+ * Cons: Stack overflow risk for long strings
+ */
 const isPalindrome = str => {
-    const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, "");
-    const reverse = str.split('').reduce((rev, char) => char + rev, '');
-    return cleanStr === reverse;
+    const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+    const check = (left, right) => {
+        if (left >= right) return true;
+        if (cleanStr[left] !== cleanStr[right]) return false;
+        return check(left + 1, right - 1);
+    }
+
+    return check(0, str.length - 1);
 }
 console.log(isPalindrome('madam'));
 console.log(isPalindrome('hello'));
