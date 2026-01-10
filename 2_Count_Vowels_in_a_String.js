@@ -52,13 +52,23 @@
  * This shows you understand accumulator-based logic.
  */
 
+// const countVowels = str => {
+//     const vowels = 'aeiouAEIOU';
+//     let count = 0;
+
+//     return str.split('').reduce((count, char) => {
+//         return vowels.includes(char) ? count + 1: count;
+//     }, 0);
+// }
+// console.log(countVowels('programming'))
+
+/**
+ * 4️⃣ Using Regular Expression (Concise & Powerful)
+ * Pros: Very short
+ * Cons: Regex knowledge required
+ */
 const countVowels = str => {
-    const vowels = 'aeiouAEIOU';
-    let count = 0;
-
-    return str.split('').reduce((count, char) => {
-        return vowels.includes(char) ? count + 1: count;
-    }, 0);
+    const matches = str.match(/[aeiou]/gi);
+    return matches? matches.length : 0;
 }
-
-console.log(countVowels('programming'))
+console.log(countVowels('programming'));
