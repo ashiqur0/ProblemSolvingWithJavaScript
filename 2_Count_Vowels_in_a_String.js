@@ -31,17 +31,34 @@
  * ✅ Very readable
  * ✅ Works well with Unicode characters
  */
+// const countVowels = str => {
+//     let count = 0;
+//     const vowels = 'aeiouAEIOU';
+
+//     for (const char of str) {
+//         if (vowels.includes(char)) {
+//             count++;
+//         }
+//     }
+
+//     return count;
+// }
+
+// console.log(countVowels('programming'));
+
+/**
+ * 3️⃣ Using reduce() (Functional Approach)
+ * Interview insight:
+ * This shows you understand accumulator-based logic.
+ */
+
 const countVowels = str => {
-    let count = 0;
     const vowels = 'aeiouAEIOU';
+    let count = 0;
 
-    for (const char of str) {
-        if (vowels.includes(char)) {
-            count++;
-        }
-    }
-
-    return count;
+    return str.split('').reduce((count, char) => {
+        return vowels.includes(char) ? count + 1: count;
+    }, 0);
 }
 
-console.log(countVowels('programming'));
+console.log(countVowels('programming'))
