@@ -84,16 +84,30 @@
  * Pros: Tests recursion understanding, Conceptually elegant
  * Cons: Stack overflow risk for long strings
  */
+// const isPalindrome = str => {
+//     const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+//     const check = (left, right) => {
+//         if (left >= right) return true;
+//         if (cleanStr[left] !== cleanStr[right]) return false;
+//         return check(left + 1, right - 1);
+//     }
+
+//     return check(0, str.length - 1);
+// }
+// console.log(isPalindrome('madam'));
+// console.log(isPalindrome('hello'));
+
+/**
+ * 6️⃣ Using every() Method
+ * Pros: Clean functional approach
+ * Cons: Slightly tricky to explain
+ */
 const isPalindrome = str => {
     const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
-
-    const check = (left, right) => {
-        if (left >= right) return true;
-        if (cleanStr[left] !== cleanStr[right]) return false;
-        return check(left + 1, right - 1);
-    }
-
-    return check(0, str.length - 1);
+    return cleanStr
+        .split('')
+        .every((char, i) => char === cleanStr[cleanStr.length - 1 - i]);
 }
 console.log(isPalindrome('madam'));
 console.log(isPalindrome('hello'));
