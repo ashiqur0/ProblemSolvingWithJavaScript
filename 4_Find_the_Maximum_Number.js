@@ -65,9 +65,21 @@
  * Pros: Shows functional programming
  * Cons: Slightly harder to explain
  */
+// const findMax = arr => {
+//     return arr.reduce((max, cur) => {
+//         return cur > max? cur: max;
+//     }, -Infinity)
+// }
+// console.log(findMax([5, 1, 9, 3]));
+
+/**
+ * 5️⃣ Using sort() (Not Recommended but Common)
+ * 
+ * Pros: Modifies original array
+ * Cons: Slower (O(n log n))
+ */
 const findMax = arr => {
-    return arr.reduce((max, cur) => {
-        return cur > max? cur: max;
-    }, -Infinity)
+    arr.sort((a, b) => b - a);
+    return arr[0];
 }
 console.log(findMax([5, 1, 9, 3]));
