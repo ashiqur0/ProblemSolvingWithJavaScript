@@ -90,15 +90,25 @@
  * Pros: ✅ Changes order
  * Cons: ❌ O(n log n)
  */
-const removeDuplicates = arr => {
-    arr.sort((a, b) => a - b);
-    const result = [arr[0]];
+// const removeDuplicates = arr => {
+//     arr.sort((a, b) => a - b);
+//     const result = [arr[0]];
 
-    for (let i = 1; i < arr.length; i++) {
-        if (arr[i] !== arr[i - 1]) {
-            result.push(arr[i]);
-        }
-    }
-    return result;
+//     for (let i = 1; i < arr.length; i++) {
+//         if (arr[i] !== arr[i - 1]) {
+//             result.push(arr[i]);
+//         }
+//     }
+//     return result;
+// }
+// console.log(removeDuplicates([1, 2, 2, 3, 4, 4]));
+
+/**
+ * 7️⃣ Using Map
+ * Pros: ✅ Preserves order, Fast lookups
+ * Cons: ⚠️ Slightly complex
+ */
+const removeDuplicates = arr => {
+    return [...new Map(arr.map(num => [num, true])).keys()]
 }
 console.log(removeDuplicates([1, 2, 2, 3, 4, 4]));
