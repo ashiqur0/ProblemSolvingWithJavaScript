@@ -65,7 +65,22 @@
  * Pros: ✅ Short & readable
  * Cons: ❌ Inefficient for large arrays (O(n²))
  */
+// const removeDuplicates = arr => {
+//     return arr.filter((num, index) => arr.indexOf(num) === index);
+// }
+// console.log(removeDuplicates([1, 2, 2, 3, 4, 4]));
+
+/**
+ * 5️⃣ Using reduce() (Functional Programming)
+ * Pros: ✅ Shows functional skills
+ * Cons: ❌ Still O(n²)
+ */
 const removeDuplicates = arr => {
-    return arr.filter((num, index) => arr.indexOf(num) === index);
+    return arr.reduce((unique, num) => {
+        if (!unique.includes(num)) {
+            unique.push(num);
+        }
+        return unique;
+    }, []);
 }
 console.log(removeDuplicates([1, 2, 2, 3, 4, 4]));
