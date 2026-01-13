@@ -75,12 +75,30 @@
  * Pros: ✅ Shows functional skills
  * Cons: ❌ Still O(n²)
  */
+// const removeDuplicates = arr => {
+//     return arr.reduce((unique, num) => {
+//         if (!unique.includes(num)) {
+//             unique.push(num);
+//         }
+//         return unique;
+//     }, []);
+// }
+// console.log(removeDuplicates([1, 2, 2, 3, 4, 4]));
+
+/**
+ * 6️⃣ Using Sorting (Modifies Array)
+ * Pros: ✅ Changes order
+ * Cons: ❌ O(n log n)
+ */
 const removeDuplicates = arr => {
-    return arr.reduce((unique, num) => {
-        if (!unique.includes(num)) {
-            unique.push(num);
+    arr.sort((a, b) => a - b);
+    const result = [arr[0]];
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] !== arr[i - 1]) {
+            result.push(arr[i]);
         }
-        return unique;
-    }, []);
+    }
+    return result;
 }
 console.log(removeDuplicates([1, 2, 2, 3, 4, 4]));
