@@ -45,17 +45,27 @@
  * Pros: ✅ Fast lookups, Fast lookups
  * Cons: ❌ Keys converted to strings
  */
+// const removeDuplicates = arr => {
+//     const seen = {};
+//     const results = [];
+
+//     for (let num of arr) {
+//         if (!seen[num]) {
+//             seen[num] = true;
+//             results.push(num);
+//         }
+//     }
+
+//     return results;
+// }
+// console.log(removeDuplicates([1, 2, 2, 3, 4, 4]));
+
+/**
+ * 4️⃣ Using filter() + indexOf()
+ * Pros: ✅ Short & readable
+ * Cons: ❌ Inefficient for large arrays (O(n²))
+ */
 const removeDuplicates = arr => {
-    const seen = {};
-    const results = [];
-
-    for (let num of arr) {
-        if (!seen[num]) {
-            seen[num] = true;
-            results.push(num);
-        }
-    }
-
-    return results;
+    return arr.filter((num, index) => arr.indexOf(num) === index);
 }
 console.log(removeDuplicates([1, 2, 2, 3, 4, 4]));
